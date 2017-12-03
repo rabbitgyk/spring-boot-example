@@ -1,4 +1,4 @@
-package com.rabbit.security.securitytest;
+package com.rabbit.security.test;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
