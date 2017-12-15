@@ -37,7 +37,7 @@ public class HelloServiceImpl implements HelloService {
     @Override
     public Person get() throws BizException {
         if (person == null) {
-            throw new BizException("为获取到用户对象");
+            throw new BizException("未获取到用户对象");
         }
         return person;
     }
