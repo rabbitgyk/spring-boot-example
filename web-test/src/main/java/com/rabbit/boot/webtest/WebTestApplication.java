@@ -3,6 +3,7 @@ package com.rabbit.boot.webtest;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -43,4 +44,13 @@ public class WebTestApplication {
 				.build();
 	}
 	/** swagger end */
+
+	/**
+	 * 参数校验 start
+	 */
+	@Bean
+	public MethodValidationPostProcessor methodValidationPostProcessor() {
+		return new MethodValidationPostProcessor();
+	}
+	/** 参数校验 end */
 }
