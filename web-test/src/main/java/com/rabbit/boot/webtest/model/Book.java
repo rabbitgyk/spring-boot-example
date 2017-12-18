@@ -1,5 +1,6 @@
 package com.rabbit.boot.webtest.model;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -8,6 +9,7 @@ import java.io.Serializable;
  */
 public class Book implements Serializable {
     private static final long serialVersionUID = 193815981138500723L;
+    @NotNull(message = "bookId不能为空")
     private String bookId;
     private String name;
     private int totalPage;
