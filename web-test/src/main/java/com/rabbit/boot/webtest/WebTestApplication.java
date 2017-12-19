@@ -44,13 +44,4 @@ public class WebTestApplication {
 				.build();
 	}
 	/** swagger end */
-
-	/**
-	 * 参数校验 start
-	 */
-	@Bean
-	public MethodValidationPostProcessor methodValidationPostProcessor() {
-		return new MethodValidationPostProcessor();
-	}
-	/** 参数校验 end */
 }

@@ -5,13 +5,9 @@ import com.rabbit.boot.webtest.model.Author;
 import com.rabbit.boot.webtest.model.Book;
 import com.rabbit.boot.webtest.service.ValidationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 
 /**
  * @Author: guoyankui
@@ -19,7 +15,6 @@ import javax.validation.constraints.NotNull;
  */
 @RestController
 @RequestMapping("/validation")
-@Validated
 public class ValidationController {
 
     @Autowired
@@ -34,8 +29,8 @@ public class ValidationController {
     }
 
     @GetMapping("/name")
-    public ResultEntity<String> getName(@NotNull String age){
-        return new ResultEntity<>("nihao");
+    public ResultEntity<String> getName(@RequestParam(required = false) String age){
+        return new ResultEntity<>("@RequestParam(required = false)控制是否必填");
     }
 
     @GetMapping("/author")
