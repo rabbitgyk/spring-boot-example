@@ -27,7 +27,7 @@ import java.util.Optional;
 public class BookSearchRepositoryTest {
 
     @Autowired
-    private BookSearchRepository productSearchRepository;
+    private BookSearchRepository bookSearchRepository;
 
     @Test
     public void test(){
@@ -35,19 +35,24 @@ public class BookSearchRepositoryTest {
     }
 
     @Test
+    public void testCreate(){
+        bookSearchRepository.index(new Book());
+    }
+
+    @Test
     public void testSave(){
         Book book = new Book();
-        book.setContentDesc("今晚吃鸡课吗");
+        book.setContentDesc("");
         book.setName("游戏");
         book.setId(900304343568L);
 
-        productSearchRepository.save(book);
+        bookSearchRepository.save(book);
     }
 
     @Test
     public void testFindById() throws Exception {
 
-        Optional<Book> book = productSearchRepository.findById(900304343563L);
+        Optional<Book> book = bookSearchRepository.findById(900304343563L);
 
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(book.orElse(null));
@@ -57,7 +62,7 @@ public class BookSearchRepositoryTest {
 
     @Test
     public void testFindByName() throws Exception {
-        List<Book> books = productSearchRepository.findByName("游戏");
+        List<Book> books = bookSearchRepository.findByName("游戏");
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(books);
 
@@ -67,17 +72,17 @@ public class BookSearchRepositoryTest {
     @Test
     public void testSearch() throws Exception {
 
-        FuzzyQueryBuilder
+        //FuzzyQueryBuilder
         //QueryBuilder filterBuilder =
-        NativeSearchQuery searchQuery = new NativeSearchQueryBuilder().withIndices("product-index").withTypes("book").withFilter().build();
+        //NativeSearchQuery searchQuery = new NativeSearchQueryBuilder().withIndices("product-index").withTypes("book").withFilter().build();
         //SearchQuery searchQuery = new NativeSearchQuery(queryBuilder);
 
-        Page<Book> bookPage = productSearchRepository.search(searchQuery);
+       // Page<Book> bookPage = productSearchRepository.search(searchQuery);
 
-        ObjectMapper mapper = new ObjectMapper();
-        String json = mapper.writeValueAsString(bookPage);
+        //ObjectMapper mapper = new ObjectMapper();
+        //String json = mapper.writeValueAsString(bookPage);
 
-        System.out.println(json);
+        //System.out.println(json);
     }
 
 

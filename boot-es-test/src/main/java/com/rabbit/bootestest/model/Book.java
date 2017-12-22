@@ -19,7 +19,7 @@ public class Book implements Serializable{
     @Id
     private Long id;
     private String name;
-    @Field(type = FieldType.Auto, analyzer = "ik_max_word", searchAnalyzer = "ik_max_word")
+    @Field(type = FieldType.text, analyzer = "ik_max_word", searchAnalyzer = "ik_max_word")
     private String contentDesc;
 
     public Long getId() {
